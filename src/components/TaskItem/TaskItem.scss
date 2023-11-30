@@ -1,0 +1,69 @@
+.item {
+  max-width: 350px;
+  min-height: 250px;
+
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.11);
+  background-color: getColor("accent");
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    flex-basis: calc((100% - (24px * 1)) / 2);
+  }
+
+  @include screen("desktop") {
+    flex-basis: calc((100% - (24px * 2)) / 3);
+  }
+}
+
+.item-wrap {
+    height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 33px 33px 20px 33px;
+}
+
+.label-checkbox {
+  @include aligh(flex, center, center);
+  position: absolute;
+  top: 14px;
+  right: 15px;
+
+  input {
+    appearance: none;
+    @include item-size(17px, 17px);
+
+    border: 2px solid getColor("secondary");
+    border-radius: 2px;
+
+    &:checked + .span-checkbox {
+      fill: getColor("secondary");
+    }
+  }
+}
+
+.span-checkbox {
+  @include aligh(flex, center, center);
+  position: absolute;
+  @include item-size(12px, 12px);
+  fill: transparent;
+}
+
+.item-text {
+  @include font(23px, 500, 1.1, 0.02em);
+}
+
+.list-btn {
+  @include aligh(flex, center, center);
+  gap: 7px;
+  margin-top: auto;
+
+  button {
+    background-color: transparent;
+    border: none;
+
+    svg {
+      @include item-size(23px, 23px);
+      fill: getColor("secondary");
+    }
+  }
+}

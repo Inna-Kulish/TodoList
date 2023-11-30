@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p, input {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+input, button, textarea, select {
+    font: inherit;
+    outline: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

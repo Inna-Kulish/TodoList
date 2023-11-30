@@ -1,0 +1,42 @@
+@mixin aligh($d, $a, $j) {
+    display: $d;
+    align-items: $a;
+    justify-content: $j;
+}
+
+@mixin font($fs, $fw, $lh, $ls) {
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    letter-spacing: $ls;
+}
+
+@mixin item-size($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin screen($size) {
+    $desktop: "(min-width: 1200px)";
+
+    $tablet: "(min-width: 768px)";
+    $mobi: "(min-width: 480px)";
+
+    @if $size ==desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+
+    @else if $size ==tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+
+    @else if $size ==mobi {
+        @media only screen and #{$mobi} {
+            @content;
+        }
+    }
+}

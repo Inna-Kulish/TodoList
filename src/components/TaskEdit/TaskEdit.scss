@@ -1,0 +1,28 @@
+.edit-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+textarea {
+    display: block;
+    width: 100%;
+    height: fit-content;
+
+    padding: 6px 15px;
+    font-size: 18px;
+    border-color: getColor("secondary");
+    border-radius: 14px;
+  }
+
+  button {
+    padding: 6px 15px;
+    font-size: 18px;
+    border-color: getColor("secondary");
+    border-radius: 14px;
+  }
+}

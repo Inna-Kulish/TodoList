@@ -1,0 +1,15 @@
+$big-space: 94px;
+$betw-space: 30px;
+$menu-space: 32px;
+
+$colors: (
+    "primary": #757575,
+    "secondary": rgba(0, 0, 0, 0.4),
+    "accent": #ffffff,
+    'bgc': #EFEFEF,
+    "border-examples": #eeeeee,
+);
+
+@function getColor($key) {
+    @return map-get($colors, $key);
+}

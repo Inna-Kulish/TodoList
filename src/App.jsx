@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import './App.css'
+import './scss/index.scss'
 import { getTasks } from './redux/operations'
 import { useEffect } from 'react';
 import { TaskList } from './components/TaskList/TaskList';
@@ -12,7 +12,12 @@ function App() {
   }, [dispatch]);
 
   return (
-    <TaskList/>
+    <section className='section'>
+      <div className='container'>
+        <TaskList/>
+      </div>
+    </section>
+    
   )
 }
 

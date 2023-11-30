@@ -1,0 +1,8 @@
+// base styles
+@import './common/';
+
+// components
+@import '../components//Modal/Modal.scss';
+@import '../components/TaskList/TaskList.scss';
+@import '../components/TaskItem/TaskItem.scss';
+@import '../components/TaskEdit/TaskEdit.scss'
