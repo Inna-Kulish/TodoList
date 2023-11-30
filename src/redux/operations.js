@@ -22,6 +22,18 @@ export const getTasks = createAsyncThunk(
     }
 );
 
+export const addTask = createAsyncThunk(
+  "tasks/addTask",
+  async (text, thunkAPI) => {
+    try {
+      const result = await axios.post("/", { title: text });
+      return result.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const toggleCompleted = createAsyncThunk(
   "tasks/toggleCompleted",
   async (task, thunkAPI) => {

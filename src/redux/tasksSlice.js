@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteTask, getTasks, toggleCompleted, editTitle } from "./operations";
+import {
+  deleteTask,
+  getTasks,
+  addTask,
+  toggleCompleted,
+  editTitle,
+} from "./operations";
 
 const initialState = {
   items: [],
@@ -7,6 +13,10 @@ const initialState = {
 
 const handleFulfilledGet = (state, action) => {
   state.items = [...state.items, ...action.payload];
+};
+
+const handleFulfilledPost = (state, action) => {
+  state.items.unshift(action.payload);
 };
 
 const handleFulfilledPut = (state, action) => {
@@ -30,10 +40,12 @@ const tasksSlice = createSlice({
     builder
       .addCase(getTasks.fulfilled, handleFulfilledGet)
       .addCase(getTasks.rejected, handleRejected)
+      .addCase(addTask.fulfilled, handleFulfilledPost)
+      .addCase(addTask.rejected, handleRejected)
       .addCase(toggleCompleted.fulfilled, handleFulfilledPut)
-        .addCase(toggleCompleted.rejected, handleRejected)
-        .addCase(editTitle.fulfilled, handleFulfilledPut)
-        .addCase(editTitle.rejected, handleRejected)
+      .addCase(toggleCompleted.rejected, handleRejected)
+      .addCase(editTitle.fulfilled, handleFulfilledPut)
+      .addCase(editTitle.rejected, handleRejected)
       .addCase(deleteTask.fulfilled, handleFulfilledDelete)
       .addCase(deleteTask.rejected, handleRejected);
   },

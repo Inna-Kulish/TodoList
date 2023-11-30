@@ -1,0 +1,21 @@
+.form-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
+
+    input {
+        flex-grow: 1;
+            padding: 6px 14px;
+            border-color: getColor("secondary");
+            border-radius: 22px;
+    }
+
+    button {
+            padding: 6px 14px;
+            border-radius: 22px;
+            border: 2px solid #e2e5e8;
+            background-color: #e2e5e8;
+    }
+}
