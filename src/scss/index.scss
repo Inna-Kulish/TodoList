@@ -2,8 +2,10 @@
 @import './common/';
 
 // components
+@import '../App.scss';
 @import '../components//Modal/Modal.scss';
 @import '../components/TaskList/TaskList.scss';
 @import '../components/TaskItem/TaskItem.scss';
 @import '../components/AddTask/AddTask.scss';
 @import '../components/TaskEdit/TaskEdit.scss';
+@import '../components/Pagination/Pagination.scss';

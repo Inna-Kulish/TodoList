@@ -5,14 +5,20 @@ import {
   addTask,
   toggleCompleted,
   editTitle,
+  getAllTasks,
 } from "./operations";
 
 const initialState = {
+  numberTasks: [],
   items: [],
 };
 
+const handleFulfilledGetAll = (state, action) => {
+  state.numberTasks = action.payload.length;
+};
+
 const handleFulfilledGet = (state, action) => {
-  state.items = [...state.items, ...action.payload];
+  state.items = action.payload;
 };
 
 const handleFulfilledPost = (state, action) => {
@@ -38,6 +44,8 @@ const tasksSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
+      .addCase(getAllTasks.fulfilled, handleFulfilledGetAll)
+      .addCase(getAllTasks.rejected, handleRejected)
       .addCase(getTasks.fulfilled, handleFulfilledGet)
       .addCase(getTasks.rejected, handleRejected)
       .addCase(addTask.fulfilled, handleFulfilledPost)

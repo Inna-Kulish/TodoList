@@ -3,6 +3,20 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://6555c0c784b36e3a431e3e6b.mockapi.io/todos'
 
+//Get All tasks
+export const getAllTasks = createAsyncThunk(
+    'todos/getAllTasks',
+    async (_, thunkAPI) => {
+        try {
+            const result = await axios.get('/');
+            
+            return result.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);
+
 //Get tasks
 export const getTasks = createAsyncThunk(
     'todos/getTasks',
@@ -10,7 +24,7 @@ export const getTasks = createAsyncThunk(
         try {
             const result = await axios.get('/', {
                 params: {
-                    page: 1,
+                    page,
                     limit: 9,
                 },
             });

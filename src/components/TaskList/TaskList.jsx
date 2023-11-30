@@ -4,6 +4,7 @@ import { TaskItem } from "../TaskItem/TaskItem";
 
 export const TaskList = () => {
     const tasks = useSelector(selectTasks);
+
     return (
         <ul className="tasks">
             {tasks.map(task => (

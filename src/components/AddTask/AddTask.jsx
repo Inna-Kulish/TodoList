@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addTask } from "../../redux/operations";
+import { addTask, getAllTasks } from "../../redux/operations";
 
 export const AddTask = () => {
     const dispatch = useDispatch();
@@ -8,7 +8,7 @@ export const AddTask = () => {
       e.preventDefault();
       
     const form = e.target;
-    dispatch(addTask(form.elements.text.value));
+      dispatch(addTask(form.elements.text.value));
     form.reset();
   };
     
