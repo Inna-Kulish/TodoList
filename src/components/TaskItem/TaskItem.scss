@@ -1,23 +1,24 @@
 .item {
+  width: 329px;
   max-width: 350px;
   min-height: 250px;
 
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.11);
-  background-color: getColor("accent");
+  background-color: getColor('accent');
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
-    flex-basis: calc((100% - (24px * 1)) / 2);
+  @include screen('tablet') {
+flex-basis: calc((100% - (24px * 1)) / 2);
   }
 
-  @include screen("desktop") {
+  @include screen('desktop') {
     flex-basis: calc((100% - (24px * 2)) / 3);
   }
 }
 
 .item-wrap {
-    height: 100%;
+  @include aligh(flex, normal, space-between);
   position: relative;
-  display: flex;
+  height: 100%;
   flex-direction: column;
   padding: 33px 33px 20px 33px;
 }
@@ -29,33 +30,32 @@
   right: 15px;
 
   input {
-    appearance: none;
     @include item-size(17px, 17px);
+    appearance: none;
 
-    border: 2px solid getColor("secondary");
+    border: 2px solid getColor('secondary');
     border-radius: 2px;
 
     &:checked + .span-checkbox {
-      fill: getColor("secondary");
+      fill: getColor('secondary');
     }
   }
 }
 
 .span-checkbox {
   @include aligh(flex, center, center);
-  position: absolute;
   @include item-size(12px, 12px);
+  position: absolute;
   fill: transparent;
 }
 
 .item-text {
-  @include font(23px, 500, 1.1, 0.02em);
+  @include font(20px, 500, 1.1, 0.02em);
 }
 
 .list-btn {
   @include aligh(flex, center, center);
   gap: 7px;
-  margin-top: auto;
 
   button {
     background-color: transparent;
@@ -63,7 +63,13 @@
 
     svg {
       @include item-size(23px, 23px);
-      fill: getColor("secondary");
+      fill: getColor('btn-color');
+      transition: fill $transition;
+
+      &:hover,
+      &:focus {
+        fill: getColor('secondary');
+      }
     }
   }
 }

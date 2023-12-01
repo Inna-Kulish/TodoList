@@ -6,8 +6,13 @@ width: 100vw;
 height: 100vh;
 background-color: rgba(0, 0, 0, 0.8);
 
-transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-visibility 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: opacity $transition, visibility $transition;
+}
+
+.overlay.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .modal-window {
@@ -15,16 +20,20 @@ position: absolute;
 top: 50%;
 left: 50%;
 box-sizing: border-box;
-width: 541px;
-padding: 40px;
-background-color: white;
+width: 95%;
+max-width: 514px;
+padding: 30px 15px;
+background-color: getColor('bgc');
 border-radius: 24px;
 box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
 0px 1px 3px rgba(0, 0, 0, 0.12),
 0px 2px 1px rgba(0, 0, 0, 0.2);
 transform: translate(-50%, -50%) scale(1);
-transition: transform 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: transform $transition;
 
+@include screen('tablet') {
+    width: 514px;
+}
 }
 
 .close-btn {

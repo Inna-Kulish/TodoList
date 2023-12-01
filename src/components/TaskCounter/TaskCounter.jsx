@@ -5,7 +5,7 @@ export const TaskCounter = () => {
   const { total, active, completed } = useSelector(selectTaskCount);
 
   return (
-    <div>
+    <div className='counter-wrap'>
       <p>Total: {total}</p>
       <p>Active: {active}</p>
       <p>Completed: {completed}</p>

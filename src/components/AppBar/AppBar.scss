@@ -1,0 +1,28 @@
+.hero-section {
+  padding-bottom: 10px;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url('../images/desk.jpg');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  h1 {
+    @include font(30px, 700, 33px, 0.02em);
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    color: getColor('accent');
+
+    @include screen('tablet') {
+      font-size: 48px;
+    }
+
+    @include screen('desktop') {
+        font-size: 54px;
+    }
+  }
+}

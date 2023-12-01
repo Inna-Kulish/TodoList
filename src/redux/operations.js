@@ -25,7 +25,7 @@ export const getTasks = createAsyncThunk(
             const result = await axios.get('/', {
                 params: {
                     page,
-                    limit: 9,
+                    limit: 6,
                 },
             });
             

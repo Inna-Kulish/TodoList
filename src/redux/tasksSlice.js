@@ -16,7 +16,7 @@ const initialState = {
 
 const handleFulfilledGetAll = (state, action) => {
   state.allTasks = action.payload;
-  state.totalPage = Math.ceil(action.payload.length/9);
+  state.totalPage = Math.ceil(action.payload.length/6);
 };
 
 const handleFulfilledGet = (state, action) => {

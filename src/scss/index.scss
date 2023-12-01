@@ -3,9 +3,12 @@
 
 // components
 @import '../App.scss';
+@import '../components/AppBar/AppBar.scss';
 @import '../components//Modal/Modal.scss';
 @import '../components/TaskList/TaskList.scss';
 @import '../components/TaskItem/TaskItem.scss';
 @import '../components/AddTask/AddTask.scss';
 @import '../components/TaskEdit/TaskEdit.scss';
 @import '../components/Pagination/Pagination.scss';
+@import '../components/TaskCounter/TaskCounter.scss';
+@import '../components/NavButton/NavButton.scss';

@@ -1,12 +1,32 @@
 .page-list {
-    display: flex;
-align-items: center;
-justify-content: center;
-    a {
-        display: block;
-        padding: 12px 14px;
-        font-size: 18px;
-        border: 1px solid black;
+  @include aligh(flex, center, center);
+
+  li {
+    border-right: 1px solid white;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 12px 20px;
+    color: getColor('accent');
+    border: none;
+    border-radius: 4px;
+    background-color: getColor('btn-color');
+    transition: background-color $transition;
+
+&:active {
         background-color: getColor('secondary');
     }
+
+    &:hover,
+    &:focus {
+      background-color: getColor('secondary');
+    }
+
+    
+  }
 }

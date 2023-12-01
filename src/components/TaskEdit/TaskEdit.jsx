@@ -20,10 +20,10 @@ export const TaskEdit = ({ task, onSubmit }) => {
 
     return (
         <>
-            <h1 className="edit-title">Edit</h1>
+            <h1 className="edit-title">Edit task</h1>
             <form className="edit-form" onSubmit={handleSubmit}>
             <label>
-                <textarea type="text" value={taskTitle} onChange={handleChange}/>
+                <textarea type="text" rows="5" value={taskTitle} onChange={handleChange}/>
             </label>
             <button type="submit">Edit</button>
         </form>

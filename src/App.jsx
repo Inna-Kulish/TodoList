@@ -1,20 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import "./scss/index.scss";
+import { selectTasks, selectTotalPage } from "./redux/selectors";
 import { getTasks, getAllTasks } from "./redux/operations";
+import { AppBar } from "./components/AppBar/AppBar";
 import { AddTask } from "./components/AddTask/AddTask";
 import { TaskList } from "./components/TaskList/TaskList";
 import { Pagination } from "./components/Pagination/Pagination";
 import { NavButton } from "./components/NavButton/NavButton";
-import { selectAllTasks, selectTasks, selectTotalPage } from "./redux/selectors";
-import { TaskCounter } from "./components/TaskCounter/TaskCounter";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const dispatch = useDispatch();
 
-  const allTasks = useSelector(selectAllTasks);
   const currentTask = useSelector(selectTasks);
   const totalPage = useSelector(selectTotalPage);
 
@@ -43,12 +42,13 @@ function App() {
   }, [dispatch, currentTask]);
 
   return (
+    <main>
+      <AppBar/>
     <section className="section">
       <div className="container">
-        <TaskCounter />
         <AddTask />
         <TaskList />
-        <div className="btn-box">
+        {currentTask.length !== 0 && <div className="btn-box">
           <NavButton
             name={"Prev"}
             disabled={currentPage === 1}
@@ -60,9 +60,10 @@ function App() {
             disabled={currentPage === totalPage}
             onBtnClick={onNextClick}
           />
-        </div>
+        </div>}
       </div>
-    </section>
+      </section>
+      </main>
   );
 }
 

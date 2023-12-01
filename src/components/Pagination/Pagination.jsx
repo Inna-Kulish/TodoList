@@ -9,12 +9,28 @@ export const Pagination = ({totalPage, onClick}) => {
         pageNumbers.push(i);
     }
 
+    function hideOverPages() {
+  let items = [...pagination.children];
+  if (items.length > 5) {
+    items.forEach((item) => item.classList.add("_hide"));
+    items[0].classList.remove("_hide");
+    if (active.parentElement.previousElementSibling) {
+      active.parentElement.previousElementSibling.classList.remove("_hide");
+    }
+    active.parentElement.classList.remove("_hide");
+    if (active.parentElement.nextElementSibling) {
+      active.parentElement.nextElementSibling.classList.remove("_hide");
+    }
+    items[items.length - 1].classList.remove("_hide");
+  }
+}
+
     return (
         <div>
             <ul className="page-list">
                 {pageNumbers.map(number => (
                     <li key={number}>
-                        <a href="!#" onClick={()=>onClick(number)}>{number}</a>
+                        <a href="" onClick={()=>onClick(number)}>{number}</a>
                     </li>
                 ))}
             </ul>
