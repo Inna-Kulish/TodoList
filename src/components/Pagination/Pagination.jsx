@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { selectTotalPage } from "../../redux/selectors";
 
-export const Pagination = ({onClick}) => {
-    const totalPage = useSelector(selectTotalPage);
+export const Pagination = ({totalPage, onClick}) => {
+    // const totalPage = useSelector(selectTotalPage);
     const pageNumbers = [];
 
     for (let i = 1; i <= totalPage; i+=1) {

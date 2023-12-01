@@ -9,12 +9,14 @@ import {
 } from "./operations";
 
 const initialState = {
-  numberTasks: [],
+  allTasks: [],
   items: [],
+  totalPage: 1,
 };
 
 const handleFulfilledGetAll = (state, action) => {
-  state.numberTasks = action.payload.length;
+  state.allTasks = action.payload;
+  state.totalPage = Math.ceil(action.payload.length/9);
 };
 
 const handleFulfilledGet = (state, action) => {
@@ -22,7 +24,7 @@ const handleFulfilledGet = (state, action) => {
 };
 
 const handleFulfilledPost = (state, action) => {
-  state.items.unshift(action.payload);
+  state.items.push(action.payload);
 };
 
 const handleFulfilledPut = (state, action) => {

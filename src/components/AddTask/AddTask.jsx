@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addTask, getAllTasks } from "../../redux/operations";
+import { addTask } from "../../redux/operations";
 
 export const AddTask = () => {
     const dispatch = useDispatch();
