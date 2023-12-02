@@ -8,10 +8,12 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { tasksReducer } from "./tasksSlice";
+import { filtersReducer } from "./Filter/filterSlice";
 
 export const store = configureStore({
     reducer: {
-        tasks: tasksReducer,
+    tasks: tasksReducer,
+      filters: filtersReducer,
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

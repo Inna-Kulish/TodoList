@@ -9,24 +9,24 @@
     }
   }
 
-  a {
-    display: block;
-    padding: 12px 20px;
-    color: getColor('accent');
-    border: none;
-    border-radius: 4px;
-    background-color: getColor('btn-color');
-    transition: background-color $transition;
+  
+}
 
-&:active {
-        background-color: getColor('secondary');
-    }
+.page-link {
+  display: block;
+  padding: 12px 20px;
+  color: getColor('accent');
+  border: none;
+  border-radius: 4px;
+  background-color: getColor('btn-color');
+  transition: background-color $transition;
 
-    &:hover,
-    &:focus {
-      background-color: getColor('secondary');
-    }
+  &:hover,
+  &:focus {
+    background-color: getColor('secondary');
+  }
 
-    
+  &.active-page {
+    background-color: getColor('secondary');
   }
 }

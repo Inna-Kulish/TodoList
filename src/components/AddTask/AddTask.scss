@@ -14,18 +14,4 @@
     border-radius: 22px;
     box-shadow: 0 3px 2px rgba(0, 0, 0, 0.05);
   }
-
-  button {
-    padding: 6px 14px;
-    color: getColor('accent');
-    border-radius: 22px;
-    border: none;
-    background-color: getColor('btn-color');
-    transition: background-color $transition;
-
-    &:hover,
-    &:focus {
-      background-color: getColor('secondary');
-    }
-  }
 }

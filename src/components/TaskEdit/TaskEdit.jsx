@@ -25,7 +25,7 @@ export const TaskEdit = ({ task, onSubmit }) => {
             <label>
                 <textarea type="text" rows="5" value={taskTitle} onChange={handleChange}/>
             </label>
-            <button type="submit">Edit</button>
+            <button className="btn" type="submit">Edit</button>
         </form>
         </>
         

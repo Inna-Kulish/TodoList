@@ -1,0 +1,20 @@
+.filter-section {
+padding-top: 15px;
+}
+
+.filter-wrap{
+text-align: end;
+
+h2 {
+    margin-bottom: 15px;
+}
+}
+
+.filter-list {
+    @include aligh(flex, center, end);
+    gap: 5px;
+
+    button {
+        text-transform: capitalize;
+    }
+}

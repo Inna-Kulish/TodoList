@@ -43,9 +43,7 @@ export const TaskItem = ({ task }) => {
           </li>
         </ul>
       </div>
-      {showModal && (
-              <Modal children={<TaskEdit task={task} onSubmit={() => setShowModal(false)} />} onClose={() => setShowModal(false)} />
-      )}
+       <Modal active={showModal} onClose={() => setShowModal(false)} children={<TaskEdit task={task} onSubmit={() => setShowModal(false)} />} />
     </li>
   );
 };

@@ -1,53 +1,60 @@
 .overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 
-transition: opacity $transition, visibility $transition;
-}
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all $transition;
 
-.overlay.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 }
 
 .modal-window {
-position: absolute;
-top: 50%;
-left: 50%;
-box-sizing: border-box;
-width: 95%;
-max-width: 514px;
-padding: 30px 15px;
-background-color: getColor('bgc');
-border-radius: 24px;
-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
-0px 1px 3px rgba(0, 0, 0, 0.12),
-0px 2px 1px rgba(0, 0, 0, 0.2);
-transform: translate(-50%, -50%) scale(1);
-transition: transform $transition;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  max-width: 514px;
+  padding: 30px 15px;
 
-@include screen('tablet') {
+  box-sizing: border-box;
+  background-color: getColor('bgc');
+  border-radius: 24px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: transform $transition;
+
+  @include screen('tablet') {
     width: 514px;
-}
+  }
+
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .close-btn {
-    position: absolute;
-    padding: 0;
-    top: 16px;
-    right: 16px;
+  position: absolute;
+  padding: 0;
+  top: 16px;
+  right: 16px;
 
-    border: 0px;
-    background-color: transparent;
+  border: 0px;
+  background-color: transparent;
 
-    svg {
-        display: block;
-        width: 24px;
-        height: 24px;
-    }
+  svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
 }
