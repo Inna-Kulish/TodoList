@@ -1,24 +1,23 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Modal } from "../Modal/Modal";
-import { TaskEdit } from "../TaskEdit/TaskEdit";
-import Checkmark from "../../images/checkmark.svg?react";
-import Pencil from "../../images/pencil.svg?react";
-import Bin from "../../images/bin.svg?react";
-import { toggleCompleted, deleteTask } from "../../redux/operations";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Modal } from '../Modal/Modal';
+import { TaskEdit } from '../TaskEdit/TaskEdit';
+import Checkmark from '../../images/checkmark.svg?react';
+import Pencil from '../../images/pencil.svg?react';
+import Bin from '../../images/bin.svg?react';
+import { toggleCompleted, deleteTask } from '../../redux/operations';
 
 // Card of task with text, checkbox, edit button and delete button
 export const TaskItem = ({ task }) => {
   const [showModal, setShowModal] = useState(false);
 
-    const dispatch = useDispatch();
-    
-    const handleToggle = () => dispatch(toggleCompleted(task));
-    
-    const handleDelete = () => dispatch(deleteTask(task.id));
+  const dispatch = useDispatch();
+
+  const handleToggle = () => dispatch(toggleCompleted(task));
+  const handleDelete = () => dispatch(deleteTask(task.id));
 
   return (
-    <li className="item">
+    <li className='item'>
       <div className="item-wrap">
         <label className="label-checkbox">
           <input
@@ -44,7 +43,11 @@ export const TaskItem = ({ task }) => {
           </li>
         </ul>
       </div>
-       <Modal active={showModal} onClose={() => setShowModal(false)} children={<TaskEdit task={task} onSubmit={() => setShowModal(false)} />} />
+      <Modal
+        active={showModal}
+        onClose={() => setShowModal(false)}
+        children={<TaskEdit task={task} onSubmit={() => setShowModal(false)} />}
+      />
     </li>
   );
 };

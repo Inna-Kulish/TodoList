@@ -25,17 +25,15 @@ function App() {
   const currentTask = useSelector(selectTasks);
   const filteredTasks = useSelector(selectVisibleTasks);
 
-  // Get all tasks for get number of pages
-  useEffect(() => {
-    dispatch(getAllTasks());
-  }, [dispatch]);
-
   // Get tasks for current page
   useEffect(() => {
     dispatch(getTasks(currentPage));
   }, [dispatch, currentPage]);
 
   useEffect(() => {
+      // Get all tasks for get number of pages
+    dispatch(getAllTasks());
+
     // rerender page when delete all tasks on current page
     if (currentTask.length === 0 && currentPage > 1) {
       dispatch(getAllTasks());

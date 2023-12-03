@@ -20,6 +20,6 @@ export const Skeleton = () => {
           </div>
         </li>
       ))}
-    </ul>
+      </ul>
   );
 };

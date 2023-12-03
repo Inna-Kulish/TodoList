@@ -4,9 +4,9 @@ import { TaskItem } from '../TaskItem/TaskItem';
 export const TaskList = ({ tasks }) => {
   return (
     <ul className="tasks">
-      {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
-      ))}
+          {tasks.map((task) => (
+        <TaskItem key={task.id} task={task} />)
+      )}
     </ul>
   );
 };

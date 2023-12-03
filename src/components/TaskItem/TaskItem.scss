@@ -4,7 +4,7 @@
   min-height: 250px;
 
   box-shadow: 0 3px 5px getColor('box-shadow');
-  background-color: getColor('accent');
+background-color: #ffe9ac;
 
   @include screen('tablet') {
 flex-basis: calc((100% - (24px * 1)) / 2);
@@ -56,6 +56,7 @@ flex-basis: calc((100% - (24px * 1)) / 2);
 .list-btn {
   @include flex(center, center);
   gap: 7px;
+  margin-top: 10px;
 
   button {
     background-color: transparent;
