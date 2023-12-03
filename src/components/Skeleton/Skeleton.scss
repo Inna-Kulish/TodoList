@@ -1,0 +1,46 @@
+.list-skeleton {
+  @include aligh(flex, normal, center);
+  flex-wrap: wrap;
+gap: 25px;
+}
+
+.item-skeleton {
+  width: 329px;
+  max-width: 350px;
+  min-height: 250px;
+}
+
+%loading-skeleton {
+  color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #eee;
+  border-color: #eee;
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+@keyframes loading-skeleton {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-skeleton {
+  pointer-events: none;
+  animation: loading-skeleton 1s infinite alternate;
+
+  img {
+    width: 329px;
+        max-width: 350px;
+        min-height: 250px;
+    filter: grayscale(100) contrast(0%) brightness(1.8);
+  }
+
+}

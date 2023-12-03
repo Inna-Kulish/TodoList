@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import "./scss/index.scss";
-import { selectTasks, selectTotalPage, selectVisibleTasks } from "./redux/selectors";
+import { Skeleton } from "./components/Skeleton/Skeleton";
+import { selectError, selectIsLoading, selectTasks, selectTotalPage, selectVisibleTasks } from "./redux/selectors";
 import { getTasks, getAllTasks } from "./redux/operations";
 import { AppBar } from "./components/AppBar/AppBar";
 import { AddTask } from "./components/AddTask/AddTask";
@@ -15,10 +16,12 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const currentTask = useSelector(selectTasks);
   const filteredTasks = useSelector(selectVisibleTasks);
   const totalPage = useSelector(selectTotalPage);
-  console.log(filteredTasks)
+  console.log(isLoading)
 
   const onPageChange = (pageNumber) => setCurrentPage(pageNumber);
   const onPrevClick = () => setCurrentPage((prev) => prev - 1);
@@ -51,9 +54,10 @@ function App() {
           <Filter/>
     <section className="section section-main">
         <div className="container">
-        <AddTask />
-          {!filteredTasks.length ? <TaskList tasks={currentTask}/> : <TaskList tasks={filteredTasks} />}
-        {!filteredTasks.length && currentTask.length !== 0 && <div className="btn-box">
+          <AddTask />
+          {isLoading && !error && <Skeleton/>}
+          {!isLoading && !filteredTasks.length ? <TaskList tasks={currentTask}/> : <TaskList tasks={filteredTasks} />}
+        {!isLoading && !filteredTasks.length && currentTask.length !== 0 && <div className="btn-box">
           <NavButton
             name={"Prev"}
             disabled={currentPage === 1}

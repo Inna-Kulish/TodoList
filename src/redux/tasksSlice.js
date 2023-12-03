@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   deleteTask,
   getTasks,
@@ -6,58 +6,91 @@ import {
   toggleCompleted,
   editTitle,
   getAllTasks,
-} from "./operations";
+} from './operations';
 
 const initialState = {
   allTasks: [],
   items: [],
   totalPage: 1,
+  isLoading: false,
+  error: null,
+};
+
+const handlePending = (state) => {
+  state.isLoading = true;
 };
 
 const handleFulfilledGetAll = (state, action) => {
+  state.isLoading = false;
   state.allTasks = action.payload;
-  state.totalPage = Math.ceil(action.payload.length/6);
+  state.totalPage = Math.ceil(action.payload.length / 6);
+  state.error = null;
 };
 
 const handleFulfilledGet = (state, action) => {
+  state.isLoading = false;
   state.items = action.payload;
+  state.error = null;
 };
 
 const handleFulfilledPost = (state, action) => {
+  state.isLoading = false;
   state.items.push(action.payload);
+  state.error = null;
 };
 
 const handleFulfilledPut = (state, action) => {
+  state.isLoading = false;
   const index = state.items.findIndex((task) => task.id === action.payload.id);
   state.items.splice(index, 1, action.payload);
+  state.error = null;
 };
 
 const handleFulfilledDelete = (state, action) => {
+  state.isLoading = false;
   const index = state.items.findIndex((task) => task.id === action.payload);
   state.items.splice(index, 1);
+  state.error = null;
 };
 
 const handleRejected = (state, action) => {
-  console.log(action);
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 const tasksSlice = createSlice({
-  name: "tasks",
+  name: 'tasks',
   initialState,
   extraReducers: (builder) => {
     builder
       .addCase(getAllTasks.fulfilled, handleFulfilledGetAll)
-      .addCase(getAllTasks.rejected, handleRejected)
       .addCase(getTasks.fulfilled, handleFulfilledGet)
-      .addCase(getTasks.rejected, handleRejected)
       .addCase(addTask.fulfilled, handleFulfilledPost)
-      .addCase(addTask.rejected, handleRejected)
       .addCase(toggleCompleted.fulfilled, handleFulfilledPut)
-      .addCase(toggleCompleted.rejected, handleRejected)
       .addCase(editTitle.fulfilled, handleFulfilledPut)
-      .addCase(editTitle.rejected, handleRejected)
       .addCase(deleteTask.fulfilled, handleFulfilledDelete)
-      .addCase(deleteTask.rejected, handleRejected);
+      .addMatcher(
+        isAnyOf(
+          getAllTasks.pending,
+          getTasks.pending,
+          addTask.pending,
+          toggleCompleted.pending,
+          editTitle.pending,
+          deleteTask.pending,
+        ),
+        handlePending,
+      )
+      .addMatcher(
+        isAnyOf(
+          getAllTasks.rejected,
+          getTasks.rejected,
+          addTask.rejected,
+          toggleCompleted.rejected,
+          editTitle.rejected,
+          deleteTask.rejected,
+        ),
+        handleRejected,
+      );
   },
 });
 
