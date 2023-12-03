@@ -12,6 +12,7 @@ const initialState = {
   allTasks: [],
   items: [],
   totalPage: 1,
+  currentPage: 1,
   isLoading: false,
   error: null,
 };
@@ -21,10 +22,8 @@ const handlePending = (state) => {
 };
 
 const handleFulfilledGetAll = (state, action) => {
-  state.isLoading = false;
   state.allTasks = action.payload;
   state.totalPage = Math.ceil(action.payload.length / 6);
-  state.error = null;
 };
 
 const handleFulfilledGet = (state, action) => {
@@ -61,25 +60,20 @@ const handleRejected = (state, action) => {
 const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
+  reducers: {
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
+      .addCase(getTasks.pending, handlePending)
       .addCase(getAllTasks.fulfilled, handleFulfilledGetAll)
       .addCase(getTasks.fulfilled, handleFulfilledGet)
       .addCase(addTask.fulfilled, handleFulfilledPost)
       .addCase(toggleCompleted.fulfilled, handleFulfilledPut)
       .addCase(editTitle.fulfilled, handleFulfilledPut)
       .addCase(deleteTask.fulfilled, handleFulfilledDelete)
-      .addMatcher(
-        isAnyOf(
-          getAllTasks.pending,
-          getTasks.pending,
-          addTask.pending,
-          toggleCompleted.pending,
-          editTitle.pending,
-          deleteTask.pending,
-        ),
-        handlePending,
-      )
       .addMatcher(
         isAnyOf(
           getAllTasks.rejected,
@@ -95,3 +89,6 @@ const tasksSlice = createSlice({
 });
 
 export const tasksReducer = tasksSlice.reducer;
+export const {
+   setCurrentPage,
+} = tasksSlice.actions;

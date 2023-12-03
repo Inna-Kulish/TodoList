@@ -16,7 +16,7 @@ h2 {
 }
 
 .filter-list {
-    @include aligh(flex, center, end);
+    @include flex(center, end);
     gap: 5px;
 
     button {

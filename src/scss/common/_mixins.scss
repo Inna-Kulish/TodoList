@@ -1,5 +1,5 @@
-@mixin aligh($d, $a, $j) {
-    display: $d;
+@mixin flex($a, $j) {
+    display: flex;
     align-items: $a;
     justify-content: $j;
 }
@@ -14,6 +14,12 @@
 @mixin item-size($w, $h) {
     width: $w;
     height: $h;
+}
+
+@mixin border($bc) {
+    border: none;
+    border-color: getColor($bc);
+    border-radius: 22px;
 }
 
 @mixin screen($size) {

@@ -3,6 +3,5 @@ padding-top: 30px;
 }
 
 .btn-box {
-    display: flex;
-    justify-content: center;
+    @include flex(center, center);
 }

@@ -17,11 +17,10 @@
 .hero-section {
   padding-bottom: 10px;
   background-image: linear-gradient(
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
+      getColor('gradient'), getColor('gradient')
     ),
     url('../images/desk.jpg');
-  background-color: black;
+  background-color: getColor('primary');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -32,7 +31,7 @@
     text-align: center;
     text-transform: capitalize;
     color: getColor('accent');
-    animation: tracking-in-contract 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+    animation: tracking-in-contract 1500ms $cubic;
 
     @include screen('tablet') {
       font-size: 48px;

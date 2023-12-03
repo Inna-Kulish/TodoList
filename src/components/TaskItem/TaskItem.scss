@@ -3,7 +3,7 @@
   max-width: 350px;
   min-height: 250px;
 
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 3px 5px getColor('box-shadow');
   background-color: getColor('accent');
 
   @include screen('tablet') {
@@ -16,7 +16,7 @@ flex-basis: calc((100% - (24px * 1)) / 2);
 }
 
 .item-wrap {
-  @include aligh(flex, normal, space-between);
+  @include flex(normal, space-between);
   position: relative;
   height: 100%;
   flex-direction: column;
@@ -24,7 +24,7 @@ flex-basis: calc((100% - (24px * 1)) / 2);
 }
 
 .label-checkbox {
-  @include aligh(flex, center, center);
+  @include flex(center, center);
   position: absolute;
   top: 14px;
   right: 15px;
@@ -43,7 +43,7 @@ flex-basis: calc((100% - (24px * 1)) / 2);
 }
 
 .span-checkbox {
-  @include aligh(flex, center, center);
+  @include flex(center, center);
   @include item-size(12px, 12px);
   position: absolute;
   fill: transparent;
@@ -54,7 +54,7 @@ flex-basis: calc((100% - (24px * 1)) / 2);
 }
 
 .list-btn {
-  @include aligh(flex, center, center);
+  @include flex(center, center);
   gap: 7px;
 
   button {
@@ -64,7 +64,7 @@ flex-basis: calc((100% - (24px * 1)) / 2);
     svg {
       @include item-size(23px, 23px);
       fill: getColor('btn-color');
-      transition: fill $transition;
+      transition: fill 300ms $cubic;
 
       &:hover,
       &:focus {

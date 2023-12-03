@@ -4,7 +4,10 @@ import Close from '../../images/close.svg?react';
 
 const modalRoot = document.querySelector('#modal-root');
 
+// Modal window
 export const Modal = ({ active, onClose, children }) => {
+
+  // Add and remove listener for "Escape" to close the modal window with "Escape"
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -18,14 +21,15 @@ export const Modal = ({ active, onClose, children }) => {
     };
   }, [onClose]);
 
-  const handleBackdropClick = event => {
+  // Close the modal window by clicking on overlay
+  const handleOverlayClick = event => {
     if (event.currentTarget === event.target) {
       onClose();
     }
   };
 
   return createPortal(
-    <div className={active ? 'overlay active' : 'overlay'} onClick={handleBackdropClick}>
+    <div className={active ? 'overlay active' : 'overlay'} onClick={handleOverlayClick}>
       <div className={active ? 'modal-window active' : 'modal-window'}>
         <button className='close-btn' type="button" onClick={()=> onClose()}><Close/></button>
         {children}

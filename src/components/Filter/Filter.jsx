@@ -1,13 +1,12 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { statusFilters } from "../../redux/Filter/constans";
-import { selectStatusFilter } from "../../redux/selectors"; 
 import { setStatusFilter } from "../../redux/Filter/filterSlice";
 
+// Filter to get all completed tasks and tasks in progress
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectStatusFilter);
 
-    const handleFilterChange = filter => { dispatch(setStatusFilter(filter))};
+  const handleFilterChange = filter => { dispatch(setStatusFilter(filter))};
 
     return (
       <section className="filter-section">

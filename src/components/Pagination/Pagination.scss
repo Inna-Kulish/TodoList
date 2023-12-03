@@ -1,15 +1,13 @@
 .page-list {
-  @include aligh(flex, center, center);
+  @include flex(center, center);
 
   li {
-    border-right: 1px solid white;
+    border-right: 1px solid getColor('accent');
 
     &:last-child {
       border-right: none;
     }
   }
-
-  
 }
 
 .page-link {
@@ -19,7 +17,7 @@
   border: none;
   border-radius: 4px;
   background-color: getColor('btn-color');
-  transition: background-color $transition;
+  transition: background-color 300ms $cubic;
 
   &:hover,
   &:focus {

@@ -4,6 +4,7 @@ export const selectAllTasks = (state) => state.tasks.allTasks;
 export const selectTasks = (state) => state.tasks.items;
 export const selectTotalPage = (state) => state.tasks.totalPage;
 export const selectStatusFilter = (state) => state.filters.status;
+export const selectCurrentPage = (state) => state.tasks.currentPage;
 export const selectIsLoading = (state) => state.tasks.isLoading;
 export const selectError = (state) => state.tasks.error;
 

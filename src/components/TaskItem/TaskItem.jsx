@@ -7,6 +7,7 @@ import Pencil from "../../images/pencil.svg?react";
 import Bin from "../../images/bin.svg?react";
 import { toggleCompleted, deleteTask } from "../../redux/operations";
 
+// Card of task with text, checkbox, edit button and delete button
 export const TaskItem = ({ task }) => {
   const [showModal, setShowModal] = useState(false);
 

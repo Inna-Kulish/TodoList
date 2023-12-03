@@ -1,8 +1,4 @@
-$big-space: 94px;
-$betw-space: 30px;
-$menu-space: 32px;
-
-$transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$cubic: cubic-bezier(0.4, 0, 0.2, 1);
 
 $colors: (
     "primary": rgb(51, 51, 51),
@@ -10,7 +6,8 @@ $colors: (
     "accent": #ffffff,
     'btn-color': rgba(0, 0, 0, 0.2),
     'bgc': #EFEFEF,
-    "border-examples": #eeeeee,
+    'box-shadow': rgba(0, 0, 0, 0.05),
+    'gradient': rgba(46, 47, 66, 0.7),
 );
 
 @function getColor($key) {

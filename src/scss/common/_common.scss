@@ -6,49 +6,22 @@ body {
   background-color: getColor('bgc');
 }
 
-.accent--color--link,
-.accent--color--link:visited {
-  color: getColor('accent');
-}
-
 .section {
   padding-top: 60px;
   padding-bottom: 60px;
 
   @media screen and (min-width: 1199px) {
-    padding-top: $big-space;
-    padding-bottom: $big-space;
+    padding-top: 94px;
+    padding-bottom: 94px;
 
-    .footer & {
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
   }
 }
 
-.icon-thumb {
-  @include aligh(flex, center, center);
-  justify-content: center;
-  width: 100%;
-}
-
-.heading-dark-fon {
-  color: getColor('accent');
-
-  @include font(14px, 700, 1.17, 0.02em);
-  text-transform: uppercase;
-  padding-bottom: 20px;
-}
 
 .container {
   width: 100%;
   height: 100%;
   padding: 0px 15px 0px 15px;
-
-  .navigation & {
-    @include aligh(flex, center, center);
-    justify-content: space-between;
-  }
 
   @include screen('mobi') {
     width: 480px;
@@ -58,26 +31,10 @@ body {
   @include screen('tablet') {
     width: 768px;
 
-    .footer & {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  @media screen and (max-width: 1199px) {
-    .footer & {
-      text-align: center;
-    }
   }
 
   @include screen('desktop') {
     width: 1200px;
-
-    .navigation &,
-    .footer & {
-      justify-content: center;
-      flex-direction: row;
-    }
   }
 }
 
@@ -88,7 +45,7 @@ body {
   border-radius: 22px;
   border: none;
   background-color: getColor('btn-color');
-  transition: background-color $transition;
+  transition: background-color 300ms $cubic;
   overflow: hidden;
 
   &:before {
@@ -102,7 +59,7 @@ body {
     background-color: getColor('secondary');
     z-index: -1;
     transform: translateX(100%);
-    transition: transform $transition;
+    transition: transform 300ms $cubic;
   }
 
   &:hover,

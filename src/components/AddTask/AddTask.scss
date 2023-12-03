@@ -1,7 +1,5 @@
 .form-add {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(center, center);
   gap: 10px;
   margin-bottom: 22px;
 
@@ -9,9 +7,7 @@
     flex-grow: 2;
     padding: 6px 14px;
     color: getColor('secondary');
-    border: none;
-    border-color: getColor('secondary');
-    border-radius: 22px;
-    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.05);
+    @include border('secondary');
+    box-shadow: 0 3px 2px getColor('box-shadow');
   }
 }

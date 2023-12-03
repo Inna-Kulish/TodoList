@@ -1,5 +1,6 @@
 import { TaskCounter } from '../TaskCounter/TaskCounter';
 
+// Hero section
 export const AppBar = () => {
   return (
     <section className="section hero-section">
